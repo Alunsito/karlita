@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+
 from .forms import RegModelForm, ContactForm
 from .models import Registrado
 
@@ -44,10 +47,20 @@ def contact(request):
 		#for key in form.cleaned_data:
 		#	print (key)
 		#	print(form.cleaned_data.get(key))
-		#nombre = form.cleaned_data.get("nombre")
-		#email = form.cleaned_data.get("email")
-		#mensaje = form.cleaned_data.get("mensaje")
+		form_nombre = form.cleaned_data.get("nombre")
+		form_email = form.cleaned_data.get("email")
+		form_mensaje = form.cleaned_data.get("mensaje")
+		asunto = 'Formulario de Contacto'
+		email_from = settings.EMAIL_HOST_USER
+		email_to = [email_from, "test@gmail.com"]
+		mensaje_email = "%s: %s enviado por %s" %(form_nombre, form_mensaje, form_email)
 		#print(email, mensaje, nombre)
+		send_mail(asunto,
+			mensaje_email,
+			email_from,
+			[email_to],
+			fail_silently=False
+			)
 	context = {
 		"form": form,
 	}
