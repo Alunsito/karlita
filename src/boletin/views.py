@@ -42,8 +42,8 @@ def inicio(request):
 def contact(request):
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
-		for key, value in form.cleaned_data.items():
-			print (key, value)
+		#for key, value in form.cleaned_data.items():
+		#	print (key, value)
 		#for key in form.cleaned_data:
 		#	print (key)
 		#	print(form.cleaned_data.get(key))
