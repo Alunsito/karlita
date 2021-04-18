@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}Bienvenidos | {{ block.super }}{% endblock %}
@@ -24,20 +25,20 @@
 <div class="container">
 <div class="row">
 	<div class="col-sm-3">
-		<p class="lead" >{{ titulo }}</p>
+		<p class="lead .text-align-center" align="center">{{ titulo }}</p>
 		<form method="POST" action="">{% csrf_token %}
 		{{ el_form|crispy }}
 		<input class='btn btn-primary' type="submit" value="Inscríbete" />
 		</form>
 	</div>
 <div class="col-sm-3">
-	<p class="lead" >Creado con Django Bootstrap</p>
+	<p class="lead .text-align-center" align="center">Creado con Django Bootstrap</p>
 </div>
 <div class="col-sm-3">
-	<p class="lead" >Fácil y sencillo</p>
+	<p class="lead .text-align-center" align="center">Fácil y sencillo</p>
 </div>
 <div class="col-sm-3">
-	<p class="lead" >Si quieres aprender, inscríbete gratis</p>
+	<p class="lead .text-align-center" align="center">Si quieres aprender, inscríbete gratis</p>
 </div>
 </div>
 </div>
