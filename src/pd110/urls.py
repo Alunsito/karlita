@@ -26,10 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.inicio, name='inicio'),
     path('contact/', views.contact, name='contact'),
-    path('jdasaldnsajlkdsdf/', about, name='about')
+    path('about/', about, name='about')
 ]
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-	
+
