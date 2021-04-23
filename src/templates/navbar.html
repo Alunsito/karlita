@@ -7,15 +7,27 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-link" href="{% url 'about' %}">Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">Contact</a>
+          <a class="nav-link" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">Contacto</a>
         </li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}">Salir</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Registrate</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'auth_login' %}">Log In</a></li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--     
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -23,3 +35,5 @@
     </div>
   </div>
 </nav>
+-->
+      
