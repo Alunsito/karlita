@@ -16,14 +16,24 @@
           <a class="nav-link" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">Contacto</a>
         </li>
       </ul>
+      {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}
+      <form class="navbar-form navbar-right" method="POST" action="{% url 'auth_login' %}">{% csrf_token %}
+        <div class="form-group"></div>
+          <input type="text" class="form-control" name="username" placeholder="Usuario" />
+        <div class="form-group"></div>
+          <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
+        <button type="submit" class="btn btn-primary">Log In</button>
+      </form>
+      {% endif %}
       <ul class="nav navbar-nav navbar-right">
           {% if request.user.is_authenticated %}
           <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}">Salir</a></li>
           {% else %}
           <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Registrate</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'auth_login' %}">Log In</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="{% url 'auth_login' %}">Log In</a></li> -->
           {% endif %}
       </ul>
+      
     </div>
   </div>
 </nav>
