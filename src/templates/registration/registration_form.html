@@ -4,8 +4,8 @@
 
 {% block content %}
 <div class='row'>
-<div class='col-6 col-offset-3' style="width: 50%; margin: 0 auto; text-align: center">
-	<h2><strong>¡Registrarte Ahora!</strong></h2><br/>
+<div class='col-6 col-offset-3' style="width: 50%; margin: 0 auto; text-align: left">
+	<h2 align="center"><strong>¡Registrarte Ahora!</strong></h2><br/>
 <form method="post" action=".">
   {% csrf_token %}
   {{ form|crispy }}
