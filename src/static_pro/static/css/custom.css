@@ -3,3 +3,11 @@ body {
   min-height: 75rem;
 }
 
+.navbar-expand-md {
+	background-color: #5983ac !important;
+	margin-bottom: 0px;
+}
+.marcado:hover {
+  color: red;
+}
+

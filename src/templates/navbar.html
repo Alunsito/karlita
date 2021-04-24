@@ -1,6 +1,19 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<style>
+.navbar-expand-md {
+  background-color: #04478a !important;
+}
+.border {
+  border-color: grey;
+}
+nav-item nav-link:hover {
+  color: black;
+}
+</style>
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark border">
   <div class="container">
-    <a class="navbar-brand" href="/">PRUEBA DJANGO NAVBAR</a>
+    <a class="navbar-brand marcado" style="color:black" href="/">PRUEBA DJANGO NAVBAR</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,10 +23,10 @@
           <a class="nav-link active" aria-current="page" href="/">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">Info</a>
+          <a class="nav-link" style="color:white" href="{% url 'about' %}">Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">Contacto</a>
+          <a class="nav-link" style="color:white" href="{% url 'contact' %}" tabindex="-1" aria-disabled="true">Contacto</a>
         </li>
       </ul>
       {% if not request.user.is_authenticated and not "/accounts/login/" in request.get_full_path %}

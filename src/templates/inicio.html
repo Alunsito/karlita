@@ -4,17 +4,30 @@
 
 {% block head_title %}Bienvenidos | {{ block.super }}{% endblock %}
 
+<style>
+{% block style %}
+.container-main .test{
+	background-color: #04478a !important;
+	color: white;
+}
+{% endblock %}
+</style>
+
 {% block container-content %}
-  <div class="bg-light p-5 rounded">
+<main class="container container-main">
+
+  <div class="test bg-light p-5 rounded">
 <div class='row'>
-	<div class='col-sm-6'>
+	<div class='col-6'>
  		<h1>APLICACIÓN WEB CON DJANGO 3.2</h1>
     	<p class="lead">Esta página está creada mediante el framework Django, el cual nos permite mediante algo simple crear una página elegante en menos tiempo</p>
    		 <a class="btn btn-lg btn-primary" href="/docs/5.0/components/navbar/" role="button">Información &raquo;</a>
    	</div>
-<div class='col-sm-6' style='background-color:#0073e6;height:300px;'></div>
+<div class='col-sm-6' style='background-color:#000;height:315px;'><iframe width="560" height="315" src="https://www.youtube.com/embed/ChSvnSv_3aw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 </div>
   </div>
+
+ </main>
 {% endblock %}
 	
 
