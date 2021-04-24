@@ -10,6 +10,10 @@
 	background-color: #04478a !important;
 	color: white;
 }
+.fa-5x{
+	font-size: 6em;
+	text-align: center;
+}
 {% endblock %}
 </style>
 
@@ -47,16 +51,23 @@
 		</form>
 	</div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Creado con Django Bootstrap</p>
+	<p class="lead .text-align-center" align="center">Creado con Django Bootstrap <span class="fa-stack fa-2x fa-5x">
+  <i class="fas fa-square fa-spin fa-stack-2x"></i>
+  <i class="fas fa-flag fa-stack-1x fa-inverse"></i>
+</span></p>
 </div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Fácil y sencillo</p>
+	<p class="lead .text-align-center" align="center">Fácil y sencillo</p><img src="{% static 'img/mariquita.jpg' %}" />
 </div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Si quieres aprender, inscríbete gratis</p>
+	<p class="lead .text-align-center" align="center">Si quieres aprender, inscríbete<span class="fa-stack fa-5x">
+  <i class="fas fa-circle fa-stack-2x" style="color:#257fc4"></i>
+  <i class="fab fa-twitter fa-stack-1x fa-inverse" style="color:white"></i>
+</span></p>
 </div>
 </div>
 </div>
 
 <hr/>
 {% endblock %}
+
