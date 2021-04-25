@@ -18,6 +18,15 @@
 </style>
 
 {% block container-content %}
+
+{% if request.user.is_staff %}
+<table class="table" style="text-align: center;">
+<tr><td>CONTADOR</td><td>CORREO</td><td>NOMBRE</td><td>FECHA</td></tr>
+{% for instance in queryset %}
+<tr><td>{{ forloop.counter }}</td><td>{{ instance }}</td><td>{{ instance.nombre }}</td><td>hace {{ instance.timestamp|timesince }}</td></tr><br></br>
+{% endfor %}
+{% else %}
+
 <main class="container container-main">
 
   <div class="test bg-light p-5 rounded">
@@ -32,6 +41,7 @@
   </div>
 
  </main>
+{% endif %}
 {% endblock %}
 	
 
@@ -41,33 +51,42 @@
 <br/>
 
 {% block content %}
+{% if not request.user.is_staff %}
 <div class="container">
 <div class="row">
 	<div class="col-sm-3">
-		<p class="lead .text-align-center" align="center">{{ titulo }}</p>
+		{% if not user.is_authenticated %}
+		<p class="lead .text-align-center" align="center">Suscríbete</p>
 		<form method="POST" action="">{% csrf_token %}
 		{{ el_form|crispy }}
 		<input class='btn btn-primary' type="submit" value="Inscríbete" />
 		</form>
+		{% else %}
+		<p class="lead .text-align-center" align="center">{{ titulo }}</p>
+		<i class="fas fa-peace fa-5x col-12" style="font-size: 10em;"></i>
+		{% endif %}
 	</div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Creado con Django Bootstrap <span class="fa-stack fa-2x fa-5x">
+	<p class="lead .text-align-center" align="center">Creado con Django Bootstrap </p>
+	<span class="fa-stack fa-2x fa-5x col-12">
   <i class="fas fa-square fa-spin fa-stack-2x"></i>
   <i class="fas fa-flag fa-stack-1x fa-inverse"></i>
-</span></p>
+</span>
 </div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Fácil y sencillo</p><img src="{% static 'img/mariquita.jpg' %}" />
+	<p class="lead .text-align-center" align="center">Fácil y sencillo</p><img src="{% static 'img/mariquita.jpg' %}" style="width: 280px" class="col-12"/>
 </div>
 <div class="col-sm-3">
-	<p class="lead .text-align-center" align="center">Si quieres aprender, inscríbete<span class="fa-stack fa-5x">
+	<p class="lead .text-align-center" align="center">Si quieres aprender, inscríbete</p>
+	<span class="fa-stack fa-5x col-12">
   <i class="fas fa-circle fa-stack-2x" style="color:#257fc4"></i>
   <i class="fab fa-twitter fa-stack-1x fa-inverse" style="color:white"></i>
-</span></p>
+</span>
 </div>
 </div>
 </div>
 
 <hr/>
+{% endif %}
 {% endblock %}
 

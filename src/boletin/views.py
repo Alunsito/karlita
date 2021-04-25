@@ -11,7 +11,7 @@ def inicio(request):
 	titulo = "Bienvenidos"
 	abc = "123"
 	if request.user.is_authenticated:
-		titulo = "Bienvenido %s" %(request.user)
+		titulo = "Bienvenid@ %s" %(request.user)
 	form = RegModelForm(request.POST or None)
 
 	context = {
@@ -36,7 +36,12 @@ def inicio(request):
 		#abc = form_data.get("email")
 		#abc2 = form_data.get("nombre")
 		#obj = Registrado.objects.create(email=abc, nombre=abc2)
-	
+	if request.user.is_authenticated and request.user.is_staff:
+		queryset = Registrado.objects.all().order_by("-timestamp")
+		context = {
+			"queryset": queryset, 
+		}
+
 	return render (request, "inicio.html", context)
 
 def contact(request):
